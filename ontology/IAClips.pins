@@ -1,4 +1,8 @@
-; Mon Nov 09 09:22:21 GMT 2015
+; Sat Nov 14 12:55:27 UTC 2015
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
+
+([IAClips_Class3] of  %3APAL-CONSTRAINT
+
+	(%3APAL-STATEMENT "(Predicate)"))
