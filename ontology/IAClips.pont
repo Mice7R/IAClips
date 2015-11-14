@@ -1,4 +1,4 @@
-; Sat Nov 14 12:55:27 UTC 2015
+; Sat Nov 14 14:15:15 UTC 2015
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -42,10 +42,6 @@
 	(single-slot momento
 		(type SYMBOL)
 		(allowed-values manana tarde noche)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot IAClips_Class10010
-		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot escritor

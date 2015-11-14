@@ -1,4 +1,4 @@
-; Sat Nov 14 12:55:27 UTC 2015
+; Sat Nov 14 14:15:15 UTC 2015
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IAClips_ProjectKB_Class28]
-		[IAClips_ProjectKB_Class29]
-		[IAClips_ProjectKB_Class30]))
+		[IAClips_ProjectKB_Class34]
+		[IAClips_ProjectKB_Class35]
+		[IAClips_ProjectKB_Class36]))
 
 ([CLSES_TAB] of  Widget
 
@@ -62,36 +62,36 @@
 ([IAClips_ProjectKB_Class115] of  Property_List
 )
 
-([IAClips_ProjectKB_Class28] of  String
+([IAClips_ProjectKB_Class34] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([IAClips_ProjectKB_Class29] of  String
+([IAClips_ProjectKB_Class35] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([IAClips_ProjectKB_Class30] of  String
+([IAClips_ProjectKB_Class36] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([IAClips_ProjectKB_Class31] of  Map_Entry
+([IAClips_ProjectKB_Class37] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([IAClips_ProjectKB_Class32] of  Map_Entry
+([IAClips_ProjectKB_Class38] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([IAClips_ProjectKB_Class33] of  Map_Entry
+([IAClips_ProjectKB_Class39] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
@@ -130,9 +130,9 @@
 ([KB_018387_Class1] of  Map
 
 	(entries
-		[IAClips_ProjectKB_Class31]
-		[IAClips_ProjectKB_Class32]
-		[IAClips_ProjectKB_Class33]))
+		[IAClips_ProjectKB_Class37]
+		[IAClips_ProjectKB_Class38]
+		[IAClips_ProjectKB_Class39]))
 
 ([KB_018387_Class10] of  Property_List
 )
