@@ -1,0 +1,4 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et :*/
+
+(load io.clips)
+(reset)

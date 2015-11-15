@@ -1,0 +1,28 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et :*/
+;--------------------------------------------------
+; IO
+;--------------------------------------------------
+(deffunction pregunta (?p $?permesos)
+  (printout t ?p " " (implode$ ?permesos) " ")
+  (bind ?r (read))
+  (if (lexemep ?r) then (bind ?r (lowcase ?r)))
+  (while (not (member ?r ?permesos)) do
+    (printout t ?p " " (implode$ ?permesos) " ")
+    (bind ?r (read))
+    (if (lexemep ?r) then (bind ?r (lowcase ?r)))
+  )
+?r)
+
+(deffunction pregunta-si-no (?p)
+  (bind ?r (pregunta ?p si no s n))
+  (if (or (eq ?r si) (eq ?r s)) then TRUE else FALSE)
+)
+
+(deffunction pregunta-num (?p)
+  (printout t ?p)
+  (bind ?r (read))
+  (while (or (not (integerp ?r)) (< ?r 0)) do
+    (printout t ?p)
+    (bind ?r (read))
+  )
+?r)
