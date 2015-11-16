@@ -1,0 +1,33 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et :*/
+
+(defrule ask-the-user "Initial sequence"
+  (not (init))
+  =>
+  (assert (populares (pregunta-si-no "Priorizamos los libros populares?")))
+  (assert (fre-q (pregunta "Cuanto sueles leer?" diariamente ocasionalmente "cuando puedo")))
+  (assert (nsfw (pregunta-si-no "Consideramos generos adultos [NSFW]")))
+  (assert (polemicos (pregunta-si-no "Consideramos libros polemicos")))
+  (assert (moda (pregunta-si-no "Priorizamos los libros/generos que estan de moda?")))
+  (assert (puntuacions (pregunta-si-no "Consideramos las criticas de otros lectores?")))
+  ; Falta generos fav
+  ; autores fav
+  ; libros que ya se han leido
+  ; negar autores/generos/libros ? [NICE BONUS]
+  (assert (init)))
+
+(defrule fre-q-1 "Si lees mucho consideramos los libros toxos"
+  ?f <- (fre-q diariamente)
+  =>
+  (assert (toxos 1)))
+
+(defrule fre-q-2 ""
+  ?f <- (fre-q ocasionalmente)
+  =>
+  (assert (toxos 0.5)))
+
+(defrule fre-q-3 "Si lees poco no recomendamos toxos"
+  (fre-q "cuando puedo")
+  =>
+  (assert (toxos 0))
+  ; cargarse libros toxos
+)

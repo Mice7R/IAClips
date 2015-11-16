@@ -1,4 +1,10 @@
 ;/* vim: set ff=unix ts=4 sw=2 tw=0 et :*/
 
+; debug
+(watch facts)
+(watch rules)
+
 (load io.clips)
+(load begin.clips)
 (reset)
+
