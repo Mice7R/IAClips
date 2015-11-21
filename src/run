@@ -1,10 +1,12 @@
-;/* vim: set ff=unix ts=4 sw=2 tw=0 et :*/
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
 
 ; debug
 (watch facts)
 (watch rules)
 
-(load io.clips)
-(load begin.clips)
+(load io.clips) ; IO
+(load begin.clips) ; Regles inicials per preguntar al usuari
+
+(load initial.clips)
 (reset)
 

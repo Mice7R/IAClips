@@ -1,0 +1,10 @@
+; Initial Facts
+
+(deffacts libros-populares
+  (popular libro ESTO_LIBRO_ES_POPULAR))
+
+(deffacts autores-populares
+  (popular autor SOY_POPULAR))
+
+(deffacts generos-populares
+  (popular genero Vampiros))
