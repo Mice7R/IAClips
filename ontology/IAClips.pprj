@@ -1,7 +1,7 @@
-; Sat Nov 14 14:15:15 UTC 2015
+; Sat Nov 28 19:58:20 CET 2015
 ; 
 ;+ (version "3.5")
-;+ (build "Build 660")
+;+ (build "Build 663")
 
 ([ANNOTATED_INSTANCE_WIDGET] of  Widget
 
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[IAClips_ProjectKB_Class34]
-		[IAClips_ProjectKB_Class35]
-		[IAClips_ProjectKB_Class36]))
+		[IAClips_ProjectKB_Class41]
+		[IAClips_ProjectKB_Class42]
+		[IAClips_ProjectKB_Class43]))
 
 ([CLSES_TAB] of  Widget
 
@@ -62,38 +62,38 @@
 ([IAClips_ProjectKB_Class115] of  Property_List
 )
 
-([IAClips_ProjectKB_Class34] of  String
+([IAClips_ProjectKB_Class41] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([IAClips_ProjectKB_Class35] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([IAClips_ProjectKB_Class36] of  String
+([IAClips_ProjectKB_Class42] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([IAClips_ProjectKB_Class37] of  Map_Entry
+([IAClips_ProjectKB_Class43] of  String
 
-	(key "suppress_instance_counting")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
 
-([IAClips_ProjectKB_Class38] of  Map_Entry
+([IAClips_ProjectKB_Class44] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([IAClips_ProjectKB_Class39] of  Map_Entry
+([IAClips_ProjectKB_Class45] of  Map_Entry
 
 	(key "change_tracking_active")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([IAClips_ProjectKB_Class46] of  Map_Entry
+
+	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
@@ -130,9 +130,9 @@
 ([KB_018387_Class1] of  Map
 
 	(entries
-		[IAClips_ProjectKB_Class37]
-		[IAClips_ProjectKB_Class38]
-		[IAClips_ProjectKB_Class39]))
+		[IAClips_ProjectKB_Class44]
+		[IAClips_ProjectKB_Class45]
+		[IAClips_ProjectKB_Class46]))
 
 ([KB_018387_Class10] of  Property_List
 )
@@ -559,7 +559,7 @@
 	(name "classes_file_name")
 	(string_value "IAClips.pont"))
 
-([KB_180350_Class3] of  Map
+([KB_756148_Class3] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
@@ -651,10 +651,10 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_CLASS_FORM_WIDGET]
-		[STANDARD_SLOT_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
-		[PAL_FORM_WIDGET])
+		[STANDARD_SLOT_FORM_WIDGET]
+		[PAL_FORM_WIDGET]
+		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
 	(default_facet_metaclass ":STANDARD-FACET")
 	(default_instance_widget_class_name "edu.stanford.smi.protege.widget.FormWidget")
