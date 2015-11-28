@@ -1,0 +1,60 @@
+(defclass Libro
+	(is-a USER)
+	(role concrete)
+	(single-slot toxo
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot polemico
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot generos
+		(type INSTANCE)
+;+		(allowed-classes Genero)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot escritor
+		(type INSTANCE)
+;+		(allowed-classes Escritor)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot puntuacion
+		(type INTEGER)
+		(range 0 10)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nsfw
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Escritor
+	(is-a USER)
+	(role concrete)
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Genero
+	(is-a USER)
+	(role concrete)
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nsfw
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))

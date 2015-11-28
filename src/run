@@ -3,9 +3,13 @@
 ; debug
 (watch facts)
 (watch rules)
+(watch instances)
 
+(load clases.pont) ; Clases
+(load load.clips) ; Cargador d'instancies
 (load io.clips) ; IO
-(load begin.clips) ; Regles inicials per preguntar al usuari
+(load begin.clips) ; Regles per preguntar al usuari
+(load user.clips) ; Regles que treballen amb les dades
 
 (load initial.clips)
 (reset)

@@ -1,0 +1,6 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
+
+(defrule load-data "Carrega les instancies"
+  (declare (salience 1)) ; Aquesta ha de ser la primer despres del reset
+  =>
+  (load-instances instances.pins))

@@ -1,10 +1,16 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
 ; Initial Facts
 
+; Volvemos con el problema de que es un libro popular
+; Creo que es mejor definir la moda
+; y aNadir clasicos en el sentido de libros que todo el mundo
+; a leido o debe leer.
+
 (deffacts libros-populares
-  (popular libro ESTO_LIBRO_ES_POPULAR))
+  (moda libro ESTO_LIBRO_ES_POPULAR))
 
 (deffacts autores-populares
-  (popular autor SOY_POPULAR))
+  (moda autor SOYPOPULAR))
 
 (deffacts generos-populares
-  (popular genero Vampiros))
+  (moda genero Vampiros))

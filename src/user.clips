@@ -1,0 +1,38 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
+
+(deftemplate exclude "Generic excludes template"
+  (slot isa) (slot o))
+
+(defrule sfw "Excluir lo que no sea SFW"
+  (nsfw FALSE)
+  ?g <- (object (is-a ?is) (nsfw TRUE))
+  => (assert (exclude (isa ?is) (o ?g))))
+
+(defrule nopolemicos "Excluir polemica"
+  (polemicos FALSE)
+  ?o <- (object (is-a ?is) (polemico TRUE))
+  => (assert (exclude (isa ?is) (o ?o))))
+
+(defrule notoxos ""
+  (toxos FALSE)
+  ?o <- (object (is-a Libro) (toxo TRUE))
+  => (assert (exclude (isa Libro) (o ?o))))
+
+; -------------------------------------------------- 
+
+(defrule exclude-libro ""
+  (declare (salience 1)) ; Para que no se anadan mas de 1 vez
+  ?f <- (exclude (isa Libro) (o ?l))
+  =>
+  (remove ?l)
+  (retract ?f))
+
+(defrule exclude-genero "Excluir un genero no es facil"
+  (exclude (isa Genero) (o ?g))
+  ?l <- (object (is-a Libro) (generos $? ?g $?))
+  => (assert (exclude (isa Libro) (o ?l))))
+
+(defrule exclude-autor "Excluir un autor tampoco"
+  (exclude (isa Escritor) (o ?g))
+  ?l <- (object (is-a Libro) (escritor ?g))
+  => (assert (exclude (isa Libro) (o ?l))))
