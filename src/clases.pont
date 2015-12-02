@@ -1,3 +1,7 @@
+
+
+
+
 (defclass Libro
 	(is-a USER)
 	(role concrete)
@@ -9,6 +13,12 @@
 	(single-slot polemico
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot score
+;+		(comment "Cosas del algo")
+		(type FLOAT)
+		(default 0.0)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot nombre
