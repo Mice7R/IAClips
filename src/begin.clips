@@ -5,7 +5,7 @@
   (assert (nsfw (pregunta-si-no "Consideramos generos adultos [NSFW]")))
   (assert (polemicos (pregunta-si-no "Consideramos libros polemicos")))
   (assert (fre-q (pregunta-si-no "Sueles leer mucho?")))
-  (assert (populares (pregunta-si-no "Priorizamos los libros populares?"))) ; Que diablos es un libro popular? ( Quiza mejor clasico )
+  (assert (clasicos (pregunta-si-no "Priorizamos los clasicos?"))) ; libros que todo el mundo ha de leer en algun momento
   (assert (moda (pregunta-si-no "Priorizamos los libros/generos que estan de moda?")))
   (assert (puntuacions (pregunta-si-no "Consideramos las criticas de otros lectores?")))
   ; Falta generos fav

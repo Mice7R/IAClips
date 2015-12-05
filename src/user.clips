@@ -1,5 +1,19 @@
 ;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
 
+(defrule nopuntuaciones "Inicia scores"
+  (declare (salience 2))
+  (puntuacions FALSE) =>
+  (do-for-all-instances ((?libro Libro)) (send ?libro put-score 1)))
+
+(defrule sipuntuaciones "Inicia scores"
+  (declare (salience 2))
+  (puntuacions TRUE)
+  => (do-for-all-instances ((?libro Libro)) (send ?libro put-score ?libro:puntuacion)))
+
+; -------------------------------------------------- 
+; Unos excludes
+; --------------------------------------------------
+
 (deftemplate exclude "Generic excludes template"
   (slot isa) (slot o))
 
@@ -18,21 +32,51 @@
   ?o <- (object (is-a Libro) (toxo TRUE))
   => (assert (exclude (isa Libro) (o ?o))))
 
-; -------------------------------------------------- 
-
 (defrule exclude-libro ""
-  (declare (salience 1)) ; Para que no se anadan mas de 1 vez
   ?f <- (exclude (isa Libro) (o ?l))
   =>
-  (remove ?l)
+  (send ?l put-score 0.0)
   (retract ?f))
 
 (defrule exclude-genero "Excluir un genero no es facil"
   (exclude (isa Genero) (o ?g))
-  ?l <- (object (is-a Libro) (generos $? ?g $?))
-  => (assert (exclude (isa Libro) (o ?l))))
+  => (do-for-all-instances ((?l Libro))
+    (member$ ?g ?l:generos) (send ?l put-score 0.0)))
 
 (defrule exclude-autor "Excluir un autor tampoco"
   (exclude (isa Escritor) (o ?g))
-  ?l <- (object (is-a Libro) (escritor ?g))
-  => (assert (exclude (isa Libro) (o ?l))))
+  => (do-for-all-instances ((?l Libro))
+    (eq ?l:escritor ?g) (send ?l put-score 0.0)))
+
+; --------------------------------------------------
+
+
+(defrule libromoda "Este libro esta de moda"
+  (moda TRUE) (moda libro ?l)
+  => (send ?l put-score (* (send ?l get-score) 2)))
+
+(defrule autormoda "Escritores de moda"
+  (moda TRUE) (moda autor ?e)
+  => (do-for-all-instances ((?l Libro))
+    (eq ?l:escritor ?e) (send ?l put-score (* ?l:score 2)) ))
+
+(defrule generomoda ""
+  (moda TRUE) (moda genero ?genero)
+  => (do-for-all-instances ((?l Libro))
+    (member$ ?genero ?l:generos) (send ?l put-score (* ?l:score 2)) ))
+
+; --------------------------------------------------
+
+(defrule libroclasico "Este libro esta de moda"
+  (clasico TRUE) (clasico libro ?l)
+  => (send ?l put-score (* (send ?l get-score) 2)))
+
+(defrule autorclasico "Escritores de moda"
+  (clasico TRUE) (clasico autor ?e)
+  => (do-for-all-instances ((?l Libro))
+    (eq ?l:escritor ?e) (send ?l put-score (* ?l:score 2)) ))
+
+(defrule generoclasico ""
+  (clasico TRUE) (clasico genero ?genero)
+  => (do-for-all-instances ((?l Libro))
+    (member$ ?genero ?l:generos) (send ?l put-score (* ?l:score 2)) ))
