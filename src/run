@@ -4,13 +4,16 @@
 (watch facts)
 (watch rules)
 (watch instances)
+(watch focus)
 
 (load clases.pont) ; Clases
+(defmodule MAIN (export defclass Libro))
 (load load.clips) ; Cargador d'instancies
 (load io.clips) ; IO
 (load begin.clips) ; Regles per preguntar al usuari
 (load user.clips) ; Regles que treballen amb les dades
-
 (load initial.clips)
+(load max.clips)
+
 (reset)
 

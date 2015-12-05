@@ -1,0 +1,40 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
+(defmodule MAX (import MAIN defclass Libro))
+
+(defrule MAIN::switchtoMAX
+  (declare (salience -10)) => (focus MAX))
+
+(deftemplate MAX::mm
+  (slot libro) (slot score (default -1.0)))
+
+(deftemplate MAX::replace
+  (slot libro) (slot score))
+
+(defrule MAX::initalgo ""
+  (not (init)) => (assert (mm (libro 0))) 
+    (assert (mm (libro 1))) 
+    (assert (mm (libro 2))) (assert (init)))
+
+(defrule MAX::step ""
+  ?libro <- (object (score ?x))
+  ?f <- (mm (libro ?old) (score ?y&:(> ?x ?y)))
+  => (modify ?f (libro ?libro) (score ?x)) (send ?libro put-score -1.0)
+    (assert (replace (libro ?old) (score ?y))))
+
+(defrule MAX::replacestep ""
+  (declare (salience 2))
+  ?r <- (replace (libro ?toreplace) (score ?y))
+  ?f <- (mm (libro ?old) (score ?x&:(> ?y ?x)))
+  => (modify ?f (libro ?toreplace) (score ?y)) 
+  (modify ?r (libro ?old) (score ?x)))
+
+(defrule MAX::deleteoldreplace "Para que no se llene de facts innecsarios"
+  (declare (salience 1))
+  ?r <- (replace) => (retract ?r))
+
+(defrule MAX::end ""
+  (declare (salience -1))
+  (mm (libro ?libro))
+  =>
+  (printout t "El libro que te recomiendo: ")
+  (send ?libro print))
