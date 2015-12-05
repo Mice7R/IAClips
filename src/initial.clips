@@ -6,11 +6,14 @@
 ; 
 ; ([moda|clasico] [libro|autor|genero] <instance>)
 
-(deffacts libros-populares ; Estos libros tienen que existir!!!!
+(deffacts MAIN::libros-populares ; Estos libros tienen que existir!!!!
   (moda libro [Quechulo]))
 
-(deffacts autores-populares
+(deffacts MAIN::autores-populares
   (moda autor [TomClancy]))
 
-(deffacts generos-populares
+(deffacts MAIN::generos-populares
   (moda genero Vampiros))
+
+(deffacts MAX::numero-recomendaciones
+  (recomendar 3)) ; Recomienda 3 libros como maximo

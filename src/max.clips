@@ -1,5 +1,4 @@
 ;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
-(defmodule MAX (import MAIN defclass Libro))
 
 (defrule MAIN::switchtoMAX
   (declare (salience -10)) => (focus MAX))
@@ -11,9 +10,8 @@
   (slot libro) (slot score))
 
 (defrule MAX::initalgo ""
-  (not (init)) => (assert (mm (libro 0))) 
-    (assert (mm (libro 1))) 
-    (assert (mm (libro 2))) (assert (init)))
+  ?f <- (recomendar ?x&:(> ?x 0)) => (assert (mm (libro ?x)))
+  (retract ?f) (assert (recomendar (- ?x 1))))
 
 (defrule MAX::step ""
   ?libro <- (object (score ?x))

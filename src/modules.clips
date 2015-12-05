@@ -1,0 +1,4 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
+
+(defmodule MAIN (export defclass Libro))
+(defmodule MAX (import MAIN defclass Libro))
