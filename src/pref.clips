@@ -1,0 +1,61 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
+
+(defrule nopuntuaciones "Inicia scores"
+  (declare (salience 2))
+  (puntuacions FALSE) =>
+  (do-for-all-instances ((?libro Libro)) (send ?libro put-score 1)))
+
+(defrule sipuntuaciones "Inicia scores"
+  (declare (salience 2))
+  (puntuacions TRUE)
+  => (do-for-all-instances ((?libro Libro)) (send ?libro put-score ?libro:puntuacion)))
+
+(defrule mod_scores "Una vez sabemos que modificar, llamamos al modder"
+    (declare (salience -1)) => (focus MODDER))
+
+; -------------------------------------------------- 
+; Unos excludes
+; --------------------------------------------------
+
+(defrule sfw "Excluir lo que no sea SFW"
+  (nsfw FALSE)
+  ?o <- (object (is-a ?is) (nsfw TRUE))
+  => (assert (modder (q ?is) (m 0.0) (o ?o))))
+
+(defrule nopolemicos "Excluir polemica"
+  (polemicos FALSE)
+  ?o <- (object (is-a ?is) (polemico TRUE))
+  => (assert (modder (q ?is) (m 0.0) (o ?o))))
+
+(defrule notoxos ""
+  (toxos FALSE)
+  ?o <- (object (is-a Libro) (toxo TRUE))
+  => (assert (modder (q Libro) (m 0.0) (o ?o))))
+
+; --------------------------------------------------
+
+(defrule libromoda "Este libro esta de moda"
+  (moda TRUE) (moda libro ?l)
+  => (assert (modder (q Libro) (m 2.0) (o ?l))))
+
+(defrule autormoda "Escritores de moda"
+  (moda TRUE) (moda autor ?e)
+  => (assert (modder (q Escritor) (m 2.0) (o ?e))))
+
+(defrule generomoda ""
+  (moda TRUE) (moda genero ?genero)
+  => (assert (modder (q Genero) (m 2.0) (o ?genero))))
+
+; --------------------------------------------------
+
+(defrule libroclasico "Este libro esta de moda"
+  (clasico TRUE) (moda libro ?l)
+  => (assert (modder (q Libro) (m 2.0) (o ?l))))
+
+(defrule autorclasico "Escritores de moda"
+  (clasico TRUE) (moda autor ?e)
+  => (assert (modder (q Escritor) (m 2.0) (o ?e))))
+
+(defrule generoclasico ""
+  (clasico TRUE) (moda genero ?genero)
+  => (assert (modder (q Genero) (m 2.0) (o ?genero))))

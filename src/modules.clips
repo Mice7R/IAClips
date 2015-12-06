@@ -1,4 +1,11 @@
 ;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
 
-(defmodule MAIN (export defclass Libro))
+(deftemplate MAIN::modder
+    (slot q (type SYMBOL) (allowed-symbols Libro Escritor Genero))
+    (slot m (type FLOAT))
+    (slot o (type INSTANCE)))
+
+(defmodule MAIN (export defclass Libro) (export deftemplate modder))
 (defmodule MAX (import MAIN defclass Libro))
+(defmodule MODDER (import MAIN defclass Libro) 
+    (import MAIN deftemplate modder))

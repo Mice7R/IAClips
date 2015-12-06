@@ -1,0 +1,22 @@
+;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
+
+; import MAIN::modder (q libro|genero|autor) (m FLOAT) (o INSTANCE)
+
+(defrule MODDER::return ""
+    (declare (salience -1000)) => (pop-focus))
+
+(defrule MODDER::mod_libro "modifica un libro"
+    ?f <- (modder (q Libro) (m ?m) (o ?libro))
+    => (send ?libro put-score (* (send ?libro get-score) ?m)) (retract ?f))
+
+(defrule MODDER::mod_autor ""
+    ?f <- (modder (q Escritor) (m ?m) (o ?autor))
+    => (do-for-all-instances ((?l Libro))
+    (eq ?l:escritor ?autor) (send ?l put-score (* ?l:score ?m)) )
+    (retract ?f))
+
+(defrule MODDER::mod_genero ""
+    ?f <- (modder (q Genero) (m ?m) (o ?genero))
+    => (do-for-all-instances ((?l Libro))
+    (member$ ?genero ?l:generos) (send ?l put-score (* ?l:score ?m)) )
+    (retract ?f))
