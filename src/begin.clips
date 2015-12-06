@@ -17,7 +17,7 @@
 (defrule fre-q-0 "Parece que lee poco, veamos si le interesan los libros grandes"
   (fre-q FALSE)
   =>
-  (assert (toxos (pregunta-si-no "Te interesan libros toxos?"))))
+  (assert (toxos (pregunta-si-no "Te interesan libros con mas de 500 paginas?"))))
 
 (defrule fre-q-1 ""
   (fre-q TRUE) => (assert (toxos TRUE)))
