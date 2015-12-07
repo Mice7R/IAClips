@@ -35,27 +35,27 @@
 ; --------------------------------------------------
 
 (defrule libromoda "Este libro esta de moda"
-  (moda TRUE) (moda libro ?l) (instancep ?l)
+  (moda TRUE) (moda libro ?l) (instance-existp ?l)
   => (assert (modder (q Libro) (m 2.0) (o ?l))))
 
 (defrule autormoda "Escritores de moda"
-  (moda TRUE) (moda autor ?e) (instancep ?e)
+  (moda TRUE) (moda autor ?e) (instance-existp ?e)
   => (assert (modder (q Escritor) (m 2.0) (o ?e))))
 
 (defrule generomoda ""
-  (moda TRUE) (moda genero ?genero) (instancep ?genero)
+  (moda TRUE) (moda genero ?genero) (instance-existp ?genero)
   => (assert (modder (q Genero) (m 2.0) (o ?genero))))
 
 ; --------------------------------------------------
 
 (defrule libroclasico "Este libro esta de moda"
-  (clasico TRUE) (moda libro ?l) (instancep ?l)
+  (clasico TRUE) (moda libro ?l) (instance-existp ?l)
   => (assert (modder (q Libro) (m 2.0) (o ?l))))
 
 (defrule autorclasico "Escritores de moda"
-  (clasico TRUE) (moda autor ?e) (instancep ?e)
+  (clasico TRUE) (moda autor ?e) (instance-existp ?e)
   => (assert (modder (q Escritor) (m 2.0) (o ?e))))
 
 (defrule generoclasico ""
-  (clasico TRUE) (moda genero ?genero) (instancep ?genero)
+  (clasico TRUE) (moda genero ?genero) (instance-existp ?genero)
   => (assert (modder (q Genero) (m 2.0) (o ?genero))))
