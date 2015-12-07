@@ -1,4 +1,4 @@
-;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
+;/* vim: set ff=unix ts=4 sw=2 tw=0 sts=2 et syntax=clips :*/
 ;--------------------------------------------------
 ; IO
 ;--------------------------------------------------
@@ -33,8 +33,8 @@
     (format t "Negados: %s %r%n" (implode$ ?b))
     (format t "Normales: %s %r%n" (implode$ ?c)))
 
-(deffunction get-instance-by-nombre (?class ?value)
-  (nth$ 1 (find-instance ((?a ?class)) (eq ?a:nombre ?value))))
+(deffunction get-instance-by-name (?value)
+  (symbol-to-instance-name (sym-cat ?value)))
 (deffunction get-ALL-instances (?class)
   (find-all-instances ((?g ?class)) (true)))
 (deffunction delete-first-char (?string)
@@ -50,14 +50,15 @@
   (bind ?continue TRUE)
   (while ?continue do
     (print-status ?aceptar ?negar ?generos)
-    (bind ?R (readline))
+    (bind ?RR (read))
+    (bind ?R (str-cat ?RR))
     (if (eq FALSE (str-index "!" ?R)) then 
-      (bind ?r (get-instance-by-nombre ?class ?R)) 
+      (bind ?r (get-instance-by-name ?R)) 
       (bind ?rmem (member$ ?r ?generos))
       (if ?rmem then (bind ?generos (delete$ ?generos ?rmem ?rmem)) 
         (bind ?aceptar (insert$ ?aceptar 1 ?r)))
     else (bind ?R (delete-first-char ?R))
-      (bind ?r (get-instance-by-nombre ?class ?R)) 
+      (bind ?r (get-instance-by-name ?R)) 
       (bind ?rmem (member$ ?r ?generos))
       (if ?rmem then (bind ?generos (delete$ ?generos ?rmem ?rmem)) 
         (bind ?negar (insert$ ?negar 1 ?r)))
