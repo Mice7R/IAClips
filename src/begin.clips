@@ -8,11 +8,8 @@
   (assert (clasicos (pregunta-si-no "Priorizamos los clasicos?"))) ; libros que todo el mundo ha de leer en algun momento
   (assert (moda (pregunta-si-no "Priorizamos los libros/generos que estan de moda?")))
   (assert (puntuacions (pregunta-si-no "Consideramos las criticas de otros lectores?")))
-  ; Falta generos fav
-  ; autores fav
-  ; libros que ya se han leido
-  ; negar autores/generos/libros ? [NICE BONUS]
-  )
+  (fav Genero)
+  (fav Escritor))
 
 (defrule fre-q-0 "Parece que lee poco, veamos si le interesan los libros grandes"
   (declare (salience 10))
