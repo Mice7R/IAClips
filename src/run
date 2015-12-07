@@ -1,10 +1,10 @@
 ;/* vim: set ff=unix ts=4 sw=2 tw=0 et syntax=clips :*/
 
 ; debug
-(watch facts)
-(watch rules)
-(watch instances)
-(watch focus)
+;(watch facts)
+;(watch rules)
+;(watch instances)
+;(watch focus)
 
 (load clases.pont) ; Clases
 (load instances.pins) ; Instances
