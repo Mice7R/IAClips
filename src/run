@@ -7,13 +7,13 @@
 (watch focus)
 
 (load clases.pont) ; Clases
+(load instances.pins) ; Instances
 (load modules.clips) ; Module definition
 (load initial.clips) ; Initial facts
 (load modder.clips)
 (load max.clips)
 (set-current-module MAIN) ; El resto de la carga sigue por MAIN
 
-(load load.clips) ; Cargador d'instancies
 (load io.clips) ; IO
 (load begin.clips) ; Regles per preguntar al usuari
 (load pref.clips) ; Regles que treballen amb les dades

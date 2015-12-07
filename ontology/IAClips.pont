@@ -1,4 +1,4 @@
-; Tue Dec 01 17:11:45 CET 2015
+; Mon Dec 07 10:06:26 CET 2015
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -66,6 +66,11 @@
 		(allowed-values manana tarde noche)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot paginas
+		(type INTEGER)
+		(range 0 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(multislot fav_escritor
 		(type INSTANCE)
 ;+		(allowed-classes Escritor)
@@ -91,11 +96,6 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot toxo
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot escritor
 		(type INSTANCE)
 ;+		(allowed-classes Escritor)
@@ -109,9 +109,9 @@
 		(type INSTANCE)
 ;+		(allowed-classes Genero)
 		(create-accessor read-write))
-	(multislot lugar
+	(multislot fav_escritor
 		(type INSTANCE)
-;+		(allowed-classes)
+;+		(allowed-classes Escritor)
 		(create-accessor read-write))
 	(single-slot populares
 ;+		(comment "Prefiere libros populares?")
@@ -120,9 +120,9 @@
 		(default TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot fav_escritor
+	(multislot lugar
 		(type INSTANCE)
-;+		(allowed-classes Escritor)
+;+		(allowed-classes)
 		(create-accessor read-write))
 	(single-slot puntuaciones
 ;+		(comment "Se fia de las criticas?")
@@ -131,16 +131,16 @@
 		(default TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot frequencia
-		(type SYMBOL)
-		(allowed-values diario ocasional condicional)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot modas
 ;+		(comment "Se deja llevar por las modas")
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
 		(default TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot frequencia
+		(type SYMBOL)
+		(allowed-values diario ocasional condicional)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot leidos
@@ -159,9 +159,9 @@
 (defclass Libro
 	(is-a USER)
 	(role concrete)
-	(single-slot toxo
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
+	(single-slot paginas
+		(type INTEGER)
+		(range 0 %3FVARIABLE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot polemico

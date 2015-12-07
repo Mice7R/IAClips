@@ -29,7 +29,7 @@
 
 (defrule notoxos ""
   (toxos FALSE)
-  ?o <- (object (is-a Libro) (toxo TRUE))
+  ?o <- (object (is-a Libro) (paginas ?x&:(> ?x 400)))
   => (assert (modder (q Libro) (m 0.0) (o ?o))))
 
 ; --------------------------------------------------

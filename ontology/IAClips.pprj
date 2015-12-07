@@ -1,4 +1,4 @@
-; Tue Dec 01 17:11:45 CET 2015
+; Mon Dec 07 10:06:26 CET 2015
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -69,13 +69,13 @@
 
 ([IAClips_ProjectKB_Class5] of  String
 
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([IAClips_ProjectKB_Class6] of  String
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
 
 ([IAClips_ProjectKB_Class7] of  Map_Entry
 
@@ -559,7 +559,7 @@
 	(name "classes_file_name")
 	(string_value "IAClips.pont"))
 
-([KB_111371_Class3] of  Map
+([KB_027433_Class3] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
@@ -651,8 +651,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_SLOT_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
+		[STANDARD_SLOT_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")

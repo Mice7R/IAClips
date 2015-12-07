@@ -5,9 +5,9 @@
 (defclass Libro
 	(is-a USER)
 	(role concrete)
-	(single-slot toxo
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
+	(single-slot paginas
+		(type INTEGER)
+		(range 0 ?VARIABLE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot polemico

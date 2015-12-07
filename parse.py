@@ -1,4 +1,5 @@
 import sys
+from urllib import unquote
 
 d = True
 for l in sys.stdin:
@@ -9,4 +10,4 @@ for l in sys.stdin:
     d = True
 
   if not d:
-    print l
+    print unquote(l)

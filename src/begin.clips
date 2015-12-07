@@ -18,7 +18,7 @@
   (declare (salience 10))
   (fre-q FALSE)
   =>
-  (assert (toxos (pregunta-si-no "Te interesan libros con mas de 500 paginas?"))))
+  (assert (toxos (pregunta-si-no "Te interesan libros con mas de 400 paginas?"))))
 
 (defrule fre-q-1 ""
   (declare (salience 10))
