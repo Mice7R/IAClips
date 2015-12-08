@@ -1,1 +1,8 @@
 Practica de Clips IA Nov2015
+
+Desde el directori src.
+El fitcher run s'ha de executar com un batch per carregar les dades.
+    (batch run)
+Un cop carregades executar amb la comanda (run)
+
+IAClipsperf.jar es una petita gui per configura les preferencies mes facilment, s'ha de executar desde el directori src i genera el fitcher initial.clips
